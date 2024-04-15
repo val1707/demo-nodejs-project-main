@@ -1,0 +1,5 @@
+allow_k8s_contexts('demo-cluster')
+k8s_yaml('deployment.yaml')
+k8s_resource('demo-nodejs', port_forwards=8080)
+docker_build('demo-nodejs-image', '.')
+default_registry('myprojectsacr.azurecr.io', single_name='demo-nodejs-app')
